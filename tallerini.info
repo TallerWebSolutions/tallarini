@@ -1,0 +1,44 @@
+name        = Tallarini Theme
+description = Tallarini base theme build upon Radix
+screenshot  = screenshot.png
+core        = 7.x
+
+; Base - Radix
+base theme  = radix
+
+
+; Regions
+regions[content] = Content
+
+; Panels
+plugins[panels][layouts] = panels/layouts
+plugins[panels][styles] = panels/styles
+
+; WYSIWYG
+; wysiwyg_format[all][stylesheets][] = assets/css/bootstrap-core.css
+; wysiwyg_format[all][stylesheets][] = assets/css/main.css
+; wysiwyg_format[all][plugin][templates] = ckeditor/templates
+wysiwyg_editor[ckeditor][config] = ckeditor/config.js
+; wysiwyg_editor[ckeditor][styles] = ckeditor/styles.js
+
+; Breakpoints (Bootstrap based)
+breakpoints[lg] = (min-width: 1200px)
+breakpoints[md] = (min-width: 992px) and (max-width: 1199px)
+breakpoints[sm] = (min-width: 768px) and (max-width: 991px)
+breakpoints[xs] = (max-width: 767px)
+
+; CSS - General
+stylesheets[all][] = assets/css/tallerini.css
+
+; Turn off CSS
+stylesheets[all][] = assets/stylesheets/radix-style.css
+stylesheets[all][] = assets/stylesheets/radix-livestyle.css
+stylesheets[print][] = assets/stylesheets/radix-print.css
+stylesheets[all][] = easy_social/css/easy_social.css
+
+; JavaScript - Custom
+scripts[] = assets/js/tallerini-jquery-extend.js
+scripts[] = assets/js/tallerini.js
+
+;  Turn off JavaScript
+scripts[] = assets/javascript/radix-script.js

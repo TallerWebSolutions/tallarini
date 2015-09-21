@@ -1,0 +1,14 @@
+/*
+ *------------------------------------------------------------------------------
+ * Panels styles
+ *------------------------------------------------------------------------------
+ */
+
+div#panels-ipe-control-container
+  z-index: 1000
+
+.panels-ipe-editing
+  @each $name, $breakpoint in $breakpoint-map
+    .hidden-#{$name}
+      display: block !important
+      opacity: 0.4

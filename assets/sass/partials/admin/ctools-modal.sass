@@ -1,0 +1,41 @@
+/*
+ *------------------------------------------------------------------------------
+ * CTools modal styles
+ *------------------------------------------------------------------------------
+ */
+
+#modalBackdrop
+  background-color: rgba(black, 0.75) !important
+
+  .modal-body
+    min-height: 75vh
+
+  .panels-add-content-modal
+    position: static
+    margin: -15px
+    width: auto
+
+    > .col-md-10
+      float: right
+      padding: 0 25px
+
+  .modal-lg
+    padding: 0 30px
+    width: 100%
+
+  .panels-section-column-categories
+    position: absolute
+    z-index: 1
+    left: 0
+    top: 0
+    width: 220px
+    bottom: 0
+    height: auto
+    padding: 10px 15px 40px
+
+    ~ .alert
+      +make-md-column(10)
+      float: right !important
+
+  .panels-section-column .inside
+    padding: 0

@@ -1,0 +1,68 @@
+/*------------------------------------------------------------------------------
+ * Media Definitions
+ *------------------------------------------------------------------------------
+ * Use this file to set breakpoint variables & functions.
+ */
+
+
+// @reference
+// breakpoints[xs] = (max-width: 767px)
+// breakpoints[sm] = (min-width: 768px) and (max-width: 991px)
+// breakpoints[md] = (min-width: 992px) and (max-width: 1199px)
+// breakpoints[lg] = (min-width: 1200px)
+
+// -----------------------------
+// Import libraries
+// -----------------------------
+
+@import breakpoint
+
+
+// -----------------------------
+// Containers
+// -----------------------------
+
+$container-xs: 100% !default
+$container-sm: 750px !default
+$container-md: 970px !default
+$container-lg: 1170px !default
+
+
+// -----------------------------
+// Media points
+// -----------------------------
+
+$sm-min: 768px !default
+$md-min: 992px !default
+$lg-min: 1200px !default
+
+$xs-max: $sm-min - 1 !default
+$sm-max: $md-min - 1 !default
+$md-max: $lg-min - 1 !default
+
+
+// -----------------------------
+// Breakpoints
+// -----------------------------
+// @refer https://github.com/at-import/breakpoint/wiki/Advanced-Media-Queries.
+
+$breakpoints: xs, sm, md, lg !default
+
+$breakpoint-xs: (width 0 $xs-max) !default
+$breakpoint-sm: (width $sm-min $sm-max) !default
+$breakpoint-md: (width $md-min $md-max) !default
+$breakpoint-lg: ($lg-min) !default
+
+$breakpoint-min-xs: (0) // Shortcut to 'any'.
+$breakpoint-min-sm: ($sm-min)
+$breakpoint-min-md: ($md-min)
+$breakpoint-min-lg: ($lg-min)
+
+$breakpoint-max-xs: (max-width $xs-max)
+$breakpoint-max-sm: (max-width $sm-max)
+$breakpoint-max-md: (max-width $md-max)
+$breakpoint-max-lg: (0) // Shortcut to 'any'.
+
+$breakpoint-map: ("xs": $breakpoint-xs, "sm": $breakpoint-sm, "md": $breakpoint-md, "lg": $breakpoint-lg)
+$breakpoint-min-map: ("xs": $breakpoint-min-xs, "sm": $breakpoint-min-sm, "md": $breakpoint-min-md, "lg": $breakpoint-min-lg)
+$breakpoint-max-map: ("xs": $breakpoint-max-xs, "sm": $breakpoint-max-sm, "md": $breakpoint-max-md, "lg": $breakpoint-max-lg)

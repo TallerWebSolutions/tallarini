@@ -1,0 +1,22 @@
+/*
+ *------------------------------------------------------------------------------
+ * Bootstrap grid extension
+ *------------------------------------------------------------------------------
+ */
+
+
+$bootstrap-grid-extend: ("20-perc": 20%)
+
+%bootstrap-col
+  position: relative
+  min-height: 1px
+  padding-left:  ($grid-gutter-width / 2)
+  padding-right: ($grid-gutter-width / 2)
+
+@each $extend, $value in $bootstrap-grid-extend
+  @each $name, $breakpoint in $breakpoint-min-map
+    .col-#{$name}-#{$extend}
+      @extend %bootstrap-col
+      +breakpoint($breakpoint)
+        float: left
+        width: $value

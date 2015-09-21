@@ -1,0 +1,6 @@
+
+# Ignore compiled assets:
+assets/css/*
+
+# Ignore caches:
+.sass-cache

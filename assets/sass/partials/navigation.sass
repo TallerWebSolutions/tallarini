@@ -1,0 +1,128 @@
+/*
+ *------------------------------------------------------------------------------
+ * Navigation element styles
+ *------------------------------------------------------------------------------
+ */
+
+body.navbar-collapse-in
+  overflow: hidden
+
+/*
+ * Navbars
+ */
+.navbar
+  &.navbar-fixed-top,
+  &.navbar-fixed-bottom
+    z-index: 500
+    margin: 0
+
+    &.navbar-collapse-in
+      +transform(translateY(0) !important)
+      height: 100%
+      overflow-y: auto
+
+      .navbar-collapse.in,
+      .navbar-collapse.collapsing
+        max-height: none
+        overflow: hidden
+
+  > .container
+    position: relative
+
+  .dropdown-static
+    position: static
+
+    &:after
+      display: none
+
+    &.open, &.standalone
+      &:after
+        display: block
+
+  .dropdown-align-right
+    right: 0
+    left: auto
+
+  .dropdown-align-left
+    left: 0
+    right: auto
+
+  .dropdown-mini-panel-menu
+    .dropdown-static &
+      max-width: 100%
+
+    .is-collapsed &
+      width: 100% !important
+      margin-left: 0 !important
+      background-color: transparent !important
+
+      .panel-pane-wrapper
+        display: none
+
+        .pane-title
+          display: none
+
+        &.menu-style-dropdown
+          display: block
+
+          .panel-pane
+            width: 100% !important
+
+    .panel-display > .container-outside
+      padding: 0 ($grid-gutter-width / 2)
+
+    .dropdown-menu
+      padding: 0
+
+  +breakpoint(max-width $sm-max)
+    .dropdown-menu
+      position: static
+      display: block
+      width: auto !important
+      float: none
+      border: 0
+      margin: 0
+      box-shadow: none
+      background-color: transparent
+
+    .dropdown-mini-panel-menu
+      .panel-pane:not(.style-menu-style-dropdown)
+        display: none
+
+      .panel-pane.style-menu-style-dropdown
+        padding-left: 0 !important
+        padding-right: 0 !important
+
+/*
+ * Dropdown menu items.
+ */
+.dropdown-menu
+  +breakpoint(max-width $sm-max)
+    > li > a
+      padding: 10px 15px
+
+  &.standalone,
+  .dropdown.open > &
+    display: block
+
+  &.standalone
+    position: static
+    float: none
+    border: none
+    box-shadow: none
+
+    .dropdown-mini-panel-menu .panel-pane.style-menu-style-dropdown &
+      margin: 0
+
+  &.style-menu-style-dropdown
+    margin: 0
+
+
+/*
+ * Menu links style.
+ */
+.nav-links
+  &, .submenu
+    margin: 0
+    padding: 0
+    list-style: none

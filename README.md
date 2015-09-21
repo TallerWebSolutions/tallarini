@@ -1,0 +1,1 @@
+Tallarini is a base theme built upon Radix.
