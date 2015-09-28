@@ -9,9 +9,9 @@
  * 
  * Fix containers empty attributes issue.
  * 
- * @todo should be moved to tallarini_tools module.
+ * @todo should be moved to tallerini_tools module.
  */
-function tallarini_preprocess_container(&$variables) {
+function tallerini_preprocess_container(&$variables) {
   if (!isset($variables['element']['#attributes'])) {
     $variables['element']['#attributes'] = array();
   }
@@ -22,7 +22,7 @@ function tallarini_preprocess_container(&$variables) {
  * 
  * Ensure a format based field class is added.
  */
-function tallarini_preprocess_field(&$variables) {
+function tallerini_preprocess_field(&$variables) {
   if (!empty($variables['element']['#formatter'])) {
     $variables['classes_array'][] = 'field-format-' . drupal_html_class($variables['element']['#formatter']);
   }
@@ -31,7 +31,7 @@ function tallarini_preprocess_field(&$variables) {
 /**
  * Implements template_preprocess_node().
  */
-function tallarini_preprocess_node(&$variables) {
+function tallerini_preprocess_node(&$variables) {
 
   /*
    * Handle view mode suggestions and classes.
@@ -65,9 +65,9 @@ function tallarini_preprocess_node(&$variables) {
 /**
  * Implements template_preprocess_page().
  */
-function tallarini_preprocess_page(&$variables) {
+function tallerini_preprocess_page(&$variables) {
 
-  $theme_default = variable_get('theme_default', 'tallarini');
+  $theme_default = variable_get('theme_default', 'tallerini');
   $navbar_settings = theme_get_setting('navbar', $theme_default);
 
   /*
@@ -92,7 +92,7 @@ function tallarini_preprocess_page(&$variables) {
       );
     }
 
-    $brand_logo['path'] = tallarini_image_path($brand_logo['path'], $theme_default, '/');
+    $brand_logo['path'] = tallerini_image_path($brand_logo['path'], $theme_default, '/');
 
     $variables['main_navbar']['header'] = array(
       'logo' => array(
@@ -118,7 +118,7 @@ function tallarini_preprocess_page(&$variables) {
   }
 
   // Enable mini panels sub-menu items.
-  tallarini_mini_panel_menu_status($variables['main_menu']);
+  tallerini_mini_panel_menu_status($variables['main_menu']);
 
   // Add main menu to main navbar:
   if (!empty($variables['main_menu'])) {
@@ -137,7 +137,7 @@ function tallarini_preprocess_page(&$variables) {
    * Prepare sitewide newsletter block.
    */
 
-  if (module_exists('tallarini_newsletter') && $newsletter = module_invoke('entityform_block', 'block_view', 'sitewide_newsletter')) {
+  if (module_exists('tallerini_newsletter') && $newsletter = module_invoke('entityform_block', 'block_view', 'sitewide_newsletter')) {
     $variables['newsletter'] = $newsletter;
   }
 }
@@ -145,7 +145,7 @@ function tallarini_preprocess_page(&$variables) {
 /**
  * Implements template_preprocess_views_view().
  */
-function tallarini_preprocess_views_view(&$variables) {
+function tallerini_preprocess_views_view(&$variables) {
 
   /*
    * Make sure we have access to the view object from the pane processing.

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains the Tallarini theme pane related implementations and overrides.
+ * Contains the Tallerini theme pane related implementations and overrides.
  *
  * We implement a logic that allows panels panes to be heavily altered by
  * styles without the need for the creation of new themes. Basically, we make
@@ -16,7 +16,7 @@
 /**
  * Implements template_preprocess_panels_pane().
  */
-function tallarini_preprocess_panels_pane(&$variables) {
+function tallerini_preprocess_panels_pane(&$variables) {
 
   $pane = &$variables['pane'];
 
@@ -40,7 +40,7 @@ function tallarini_preprocess_panels_pane(&$variables) {
   }
 
   // Generate default pane structure as renderable array.
-  $variables['renderable'] = _tallarini_panels_pane_renderable($variables);
+  $variables['renderable'] = _tallerini_panels_pane_renderable($variables);
 
   // Execute any style plugin alters.
   _am_panels_styles_alter('preprocess', $variables);
@@ -49,7 +49,7 @@ function tallarini_preprocess_panels_pane(&$variables) {
 /**
  * Implements template_process_panels_pane().
  */
-function tallarini_process_panels_pane(&$variables) {
+function tallerini_process_panels_pane(&$variables) {
   // Fulfil post-processed pane attributes.
   $variables['renderable']['pane']['#attributes'] = $variables['renderable']['pane']['#attributes'] + array(
     'class' => $variables['classes_array'],
@@ -80,21 +80,21 @@ function tallarini_process_panels_pane(&$variables) {
 /**
  * Implements theme_panels_pane().
  */
-function tallarini_panels_pane(&$variables) {
-  return _tallarini_panels_pane($variables);
+function tallerini_panels_pane(&$variables) {
+  return _tallerini_panels_pane($variables);
 }
 
 /**
  * Implements theme_panels_pane__entity_field().
  */
-function tallarini_panels_pane__entity_field(&$variables) {
-  return _tallarini_panels_pane($variables);
+function tallerini_panels_pane__entity_field(&$variables) {
+  return _tallerini_panels_pane($variables);
 }
 
 /**
  * Helper method to create a default pane structure as a renderable array.
  */
-function _tallarini_panels_pane_renderable(&$variables) {
+function _tallerini_panels_pane_renderable(&$variables) {
 
   $pane = $variables['pane'];
   $display = $variables['display'];
@@ -186,7 +186,7 @@ function _tallarini_panels_pane_renderable(&$variables) {
  *
  * Give it a chance to apply our styles before rendering
  */
-function _tallarini_panels_pane(&$variables) {
+function _tallerini_panels_pane(&$variables) {
   // Execute any style plugin alters.
   _am_panels_styles_alter('theme', $variables);
   return drupal_render($variables['renderable']);

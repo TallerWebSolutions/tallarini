@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains the Tallarini theme implementations and overrides.
+ * Contains the Tallerini theme implementations and overrides.
  */
 
 require_once dirname(__FILE__) . '/tallerini.theme.navbar.inc';
@@ -11,7 +11,7 @@ require_once dirname(__FILE__) . '/tallerini.theme.pane.inc';
 /**
  * Implements hook_theme().
  */
-function tallarini_theme() {
+function tallerini_theme() {
   return array(
     'bootstrap_navbar' => array(
       'render element' => 'element',
@@ -22,7 +22,7 @@ function tallarini_theme() {
 /**
  * Implements theme_button().
  */
-function tallarini_button($variables) {
+function tallerini_button($variables) {
   $element = $variables['element'];
   $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
@@ -47,7 +47,7 @@ function tallarini_button($variables) {
 /**
  * Implements template_process_easy_social_links().
  */
-function tallarini_process_easy_social_links(&$variables) {
+function tallerini_process_easy_social_links(&$variables) {
   $element = array(
     '#type' => 'container',
     '#attributes' => array(
@@ -76,6 +76,6 @@ function tallarini_process_easy_social_links(&$variables) {
 /**
  * Overrides theme_easy_social_links().
  */
-function tallarini_easy_social_links(&$variables) {
+function tallerini_easy_social_links(&$variables) {
   return drupal_render($variables['element']);
 }

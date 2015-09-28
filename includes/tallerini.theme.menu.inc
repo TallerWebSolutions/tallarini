@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Contains the Tallarini theme menu related implementations and overrides.
+ * Contains the Tallerini theme menu related implementations and overrides.
  */
 
 /**
  * Overrides theme_menu_link().
  */
-function tallarini_menu_link(&$variables) {
+function tallerini_menu_link(&$variables) {
   global $language_url;
 
   $element = &$variables['element'];
@@ -135,9 +135,9 @@ function tallarini_menu_link(&$variables) {
  * Implements theme_menu_link__link(&$variables).
  * 
  * @todo : Lots of copied code here. Make up some logic to inherit at least
- * part of the tallarini_menu_link implementation.
+ * part of the tallerini_menu_link implementation.
  */
-function tallarini_menu_link__link(&$variables) {
+function tallerini_menu_link__link(&$variables) {
   global $language_url;
 
   $element = &$variables['element'];
@@ -211,13 +211,13 @@ function tallarini_menu_link__link(&$variables) {
 /**
  * Implements theme_menu_tree__dropdown().
  */
-function tallarini_menu_tree__dropdown(&$variables) {
+function tallerini_menu_tree__dropdown(&$variables) {
   return '<ul class="dropdown-menu standalone">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * Implements theme_menu_tree__links().
  */
-function tallarini_menu_tree__links(&$variables) {
+function tallerini_menu_tree__links(&$variables) {
   return '<ul class="menu nav-links">' . $variables['tree'] . '</ul>';
 }

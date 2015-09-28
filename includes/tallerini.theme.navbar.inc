@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Contains the Tallarini theme Navbar implementations and overrides.
+ * Contains the Tallerini theme Navbar implementations and overrides.
  */
 
 /**
  * Implements template_process_bootstrap_navbar().
  */
-function tallarini_process_bootstrap_navbar(&$variables) {
+function tallerini_process_bootstrap_navbar(&$variables) {
 
   // Avoid unsupported operations.
   if (empty($variables['element'])) $variables['element'] = array();
@@ -95,7 +95,7 @@ function tallarini_process_bootstrap_navbar(&$variables) {
 /**
  * Implements theme_bootstrap_navbar().
  */
-function tallarini_bootstrap_navbar($variables) {
+function tallerini_bootstrap_navbar($variables) {
   $element = &$variables['element'];
   $brand = &$element['navbar']['container']['header']['brand'];
 

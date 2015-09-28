@@ -7,19 +7,19 @@
 /**
  * Implements theme_settings().
  */
-function tallarini_form_system_theme_settings_alter(&$form, &$form_state) {
+function tallerini_form_system_theme_settings_alter(&$form, &$form_state) {
   // Ensure this include file is loaded when the form is rebuilt from the cache.
   $form_state['build_info']['files']['form'] = drupal_get_path('theme', 'basic') . '/theme-settings.php';
 
   // Add theme settings here.
-  $form['tallarini_theme_settings'] = array(
+  $form['tallerini_theme_settings'] = array(
     '#title' => t('Theme Settings'),
     '#type' => 'fieldset',
   );
 
   // Copyright.
   $copyright = theme_get_setting('copyright');
-  $form['tallarini_theme_settings']['copyright'] = array(
+  $form['tallerini_theme_settings']['copyright'] = array(
     '#title' => t('Copyright'),
     '#type' => 'text_format',
     '#format' => $copyright['format'],
