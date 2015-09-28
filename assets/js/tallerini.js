@@ -93,13 +93,15 @@
     , talleriniDropdownToggleDettachListeners = [];
 
   $(function () {
-    Drupal.Breakpoints.register(['xs', 'sm'], function () {
-      talleriniCallAll(talleriniDropdownToggleDettachListeners);
-    });
+    if (Drupal.Breakpoints) {
+      Drupal.Breakpoints.register(['xs', 'sm'], function () {
+        talleriniCallAll(talleriniDropdownToggleDettachListeners);
+      });
 
-    Drupal.Breakpoints.register(['md', 'lg'], function () {
-      talleriniCallAll(talleriniDropdownToggleAttachListeners);
-    });
+      Drupal.Breakpoints.register(['md', 'lg'], function () {
+        talleriniCallAll(talleriniDropdownToggleAttachListeners);
+      });
+    }
   });
 
   /**
