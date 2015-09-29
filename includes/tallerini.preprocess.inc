@@ -6,9 +6,9 @@
 
 /**
  * Implements template_preprocess_container().
- * 
+ *
  * Fix containers empty attributes issue.
- * 
+ *
  * @todo should be moved to tallerini_tools module.
  */
 function tallerini_preprocess_container(&$variables) {
@@ -19,7 +19,7 @@ function tallerini_preprocess_container(&$variables) {
 
 /**
  * Implements template_preprocess_field().
- * 
+ *
  * Ensure a format based field class is added.
  */
 function tallerini_preprocess_field(&$variables) {
@@ -113,7 +113,11 @@ function tallerini_preprocess_page(&$variables) {
   // Garantee the menu is present. Useful for error pages.
   if (empty($variables['main_menu']) || count($variables['main_menu']) == 1) {
     $tree = menu_tree_all_data(variable_get('menu_main_links_source', 'main-menu'));
-    menu_tree_add_active_path($tree);
+
+    if (module_exists('menu_block')) {
+      menu_tree_add_active_path($tree);
+    }
+
     $variables['main_menu'] = menu_tree_output($tree);
   }
 
