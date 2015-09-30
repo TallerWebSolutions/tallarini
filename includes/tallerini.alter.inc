@@ -65,6 +65,7 @@ function tallerini_page_alter() {
 function tallerini_js_alter(&$javascript) {
   $override_map = array(
     tallerini_js_path('radix-modal', 'radix', 'assets/javascripts') => tallerini_js_path('tallerini-ctools-modal', 'tallerini'),
+    tallerini_js_path('radix-script', 'radix', 'assets/javascripts') => tallerini_js_path('radix-script', 'tallerini'),
     drupal_get_path('module', 'ctools') . '/js/dependent.js' => tallerini_js_path('tallerini-dependent', 'tallerini'),
   );
 
