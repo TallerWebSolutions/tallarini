@@ -110,31 +110,45 @@ function tallerini_preprocess_page(&$variables) {
     );
   }
 
-  // Garantee the menu is present. Useful for error pages.
-  if (empty($variables['main_menu']) || count($variables['main_menu']) == 1) {
-    $tree = menu_tree_all_data(variable_get('menu_main_links_source', 'main-menu'));
+  /*
+   * Add menus to navbar.
+   */
+
+  $menus = array(
+    'main_menu' => variable_get('menu_main_links_source', 'main-menu'),
+    'secondary_menu' => variable_get('menu_secondary_links_source', 'user-menu'),
+  );
+
+  foreach ($menus as $menu => $source) {
+    $menu_css = drupal_html_class($menu);
+    $tree = menu_tree_all_data($source);
 
     if (module_exists('menu_block')) {
       menu_tree_add_active_path($tree);
     }
 
-    $variables['main_menu'] = menu_tree_output($tree);
+    $variables[$menu] = menu_tree_output($tree);
+
+    // Enable mini panels sub-menu items.
+    tallerini_mini_panel_menu_status($variables[$menu]);
+
+    // Add menu to main navbar:
+    if (!empty($variables[$menu])) {
+      $variables[$menu]['#theme_wrappers'] = array('menu_tree__navbar_nav');
+      $variables['main_navbar']['content'][$menu_css . '-container'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'id' => $menu_css . '-container',
+        ),
+        $menu_css => $variables[$menu],
+      );
+
+      if ($menu == 'secondary_menu') {
+        $variables['main_navbar']['content'][$menu_css . '-container']['#attributes']['class'] = 'navbar-right';
+      }
+    }
   }
 
-  // Enable mini panels sub-menu items.
-  tallerini_mini_panel_menu_status($variables['main_menu']);
-
-  // Add main menu to main navbar:
-  if (!empty($variables['main_menu'])) {
-    $variables['main_menu']['#theme_wrappers'] = array('menu_tree__navbar_nav');
-    $variables['main_navbar']['content']['main-menu-container'] = array(
-      '#type' => 'container',
-      '#attributes' => array(
-        'id' => 'main-menu-container',
-      ),
-      'main-menu' => $variables['main_menu'],
-    );
-  }
 
 
   /*
